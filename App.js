@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from "react";
+import StackNavigation from "./src/navigation/StackNavigation";
+import * as CONST from "./src/CONST";
+import { CometChat } from "@cometchat-pro/react-native-chat";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  const [userr, setUserr] = useState(null);
+  useEffect(() => {
+    var appID = CONST.APP_ID;
+    var region = CONST.REGION;
+    var appSetting = new CometChat.AppSettingsBuilder()
+      .subscribePresenceForAllUsers()
+      .setRegion(region)
+      .build();
+    CometChat.init(appID, appSetting).then(
+      () => {
+        console.log("Initialization completed successfully");
+      },
+      (error) => {
+        console.log("Initialization failed with error:", error);
+      }
+    );
+  }, []);
+  return <StackNavigation />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

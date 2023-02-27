@@ -4,30 +4,38 @@
     "slug": "CometChat-expo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/chat-icon.png",
     "userInterfaceStyle": "light",
+    "androidStatusBar": {
+      "backgroundColor": "#3399ff",
+      "translucent": false
+    },
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/chat-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/chat-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.yashtron.CometChatexpo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1905888f-39a1-4a19-8668-aee845028deb"
+      }
     }
   }
 }
